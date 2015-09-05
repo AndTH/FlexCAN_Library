@@ -142,7 +142,7 @@ int FlexCAN::read(CAN_message_t &msg)
   // get identifier and dlc
   msg.len = FLEXCAN_get_length(FLEXCAN0_MBn_CS(rxb));
   msg.ext = (FLEXCAN0_MBn_CS(rxb) & FLEXCAN_MB_CS_IDE)? 1:0;
-  msg.rtr  = (FLEXCAN0_MBn_CS(rxb) & FLEXCAN_MB_CS_RTR)? 1:0;
+  msg.rtr = (FLEXCAN0_MBn_CS(rxb) & FLEXCAN_MB_CS_RTR)? 1:0;
   msg.id  = (FLEXCAN0_MBn_ID(rxb) & FLEXCAN_MB_ID_EXT_MASK);
   if(!msg.ext) {
     msg.id >>= FLEXCAN_MB_ID_STD_BIT_NO;
